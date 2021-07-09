@@ -2,19 +2,25 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, Modal, TouchableOpacity, Dimensions, Image } from 'react-native'
 import RNBootSplash from "react-native-bootsplash";
 const { width } = Dimensions.get('window')
-
+console.reportErrorsAsExceptions = false; // copy paste this line in your App.js 
 
 const App = () => {
 
   // useEffect(() => {
-  //   RNBootSplash.hide({ duration: 250 })
+  //   setTimeout(() => {
+  //     RNBootSplash.hide()
+  //   }, 2000);
   // }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      RNBootSplash.hide()
-    }, 20000);
-  }, []);
+    useEffect(() => {
+      const init = async () => {
+        // …do multiple sync or async tasks
+      };
+  
+      init().finally(async () => {
+        await RNBootSplash.hide({ fade: true });
+        console.log("Bootsplash has been hidden successfully");
+      });
+    }, []);
 
   const [pScore, setPScore] = useState(0)
   const [cScore, setCScore] = useState(0)
@@ -89,33 +95,6 @@ const App = () => {
 
       )
     }
-    // } else if (selectedItem === 1 && randomComp === 2) {
-    //   return (
-    //     <View>
-    //       <Text style={{ fontFamily: 'Raleway-Regular', fontSize: 22, color: 'rgb(224,224,224)', textAlign: 'center' }}>Computer Wins</Text>
-    //     </View>
-    //   )
-    // } else if (selectedItem === 2 && randomComp === 1) {
-    //   return (
-    //     <View>
-    //       <Text style={{ fontFamily: 'Raleway-Regular', fontSize: 22, color: 'rgb(224,224,224)', textAlign: 'center' }}>Player Wins</Text>
-    //     </View>
-    //   )
-    // } else if (selectedItem === 2 && randomComp === 0) {
-    //   return (
-    //     <View>
-    //       <Text style={{ fontFamily: 'Raleway-Regular', fontSize: 22, color: 'rgb(224,224,224)', textAlign: 'center' }}>Computer Wins</Text>
-    //     </View>
-    //   )
-    // } else if (selectedItem === 1 && randomComp === 0) {
-    //   return (
-    //     <View>
-    //       <Text style={{ fontFamily: 'Raleway-Regular', fontSize: 22, color: 'rgb(224,224,224)', textAlign: 'center' }}>Player Wins</Text>
-    //     </View>
-    //   )
-    // }
-
-
   }
 
 
