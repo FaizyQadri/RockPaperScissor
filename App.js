@@ -6,11 +6,6 @@ console.reportErrorsAsExceptions = false; // copy paste this line in your App.js
 
 const App = () => {
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     RNBootSplash.hide()
-  //   }, 2000);
-  // }, []);
     useEffect(() => {
       const init = async () => {
         // …do multiple sync or async tasks
@@ -18,7 +13,6 @@ const App = () => {
   
       init().finally(async () => {
         await RNBootSplash.hide({ fade: true });
-        console.log("Bootsplash has been hidden successfully");
       });
     }, []);
 
@@ -40,12 +34,6 @@ const App = () => {
   const closeWinModal = () => {
     setWin(false)
   }
-
-  useEffect(() => {
-    setTimeout(() => {
-      RNBootSplash.hide()
-    }, 3000)
-  }, [])
 
 
   const SlectedItem = () => {
